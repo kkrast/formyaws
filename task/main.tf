@@ -7,18 +7,16 @@ variable "key_name" {
 #### CALL MDOULES
 module "core_infra" {
   source  = "./infra"
-  profile = "${var.profile}"
-  region  = "${var.region}"
 }
+
 module "webapp" {
   source   = "./webapp"
-  profile  = "${var.profile}"
-  region   = "${var.region}"
   key_name = "${var.key_name}"
 
   # pass web security group and public networks
   sg_web = "${module.core_infra.sg_web}"
-  sn_web = "${module.core_infra.sn_pub1}"
+  sn_web1 = "${module.core_infra.sn_pub1}"
+  sn_web2 = "${module.core_infra.sn_pub2}"
   # pass database security group and private networks
   sg_db  = "${module.core_infra.sg_db}"
   sn_db1 = "${module.core_infra.sn_priv1}"
