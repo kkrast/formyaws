@@ -14,7 +14,7 @@ resource "aws_security_group" "my-webserver" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags {
+  tags = {
     Name = "my-webserver"
     Site = "my-web-site"
   }
@@ -37,7 +37,7 @@ resource "aws_security_group" "my-database" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags {
+  tags = {
     Name = "my-database"
     Site = "my-web-site"
   }
