@@ -11,7 +11,7 @@ resource "aws_vpc" "my-main" {
   enable_dns_hostnames = false
   enable_dns_support   = true
   instance_tenancy     = "default"
-tags {
+tags = {
     Site = "my-web-site"
     Name = "my-vpc"
   }
