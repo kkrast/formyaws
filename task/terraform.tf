@@ -1,6 +1,7 @@
 provider "aws" {
   version = "~> 2.0"
   region  = "eu-west-1"
+  profile = "kkrastev-free-kalin"
 }
 
 terraform {
@@ -11,3 +12,4 @@ terraform {
     dynamodb_table = "terraform-lock"
   }
 }
+
