@@ -1,7 +1,7 @@
 resource "aws_security_group" "my-webserver" {
   name        = "webserver"
   description = "Allow HTTP from Anywhere"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
   ingress {
     from_port   = 80
     to_port     = 80
@@ -23,12 +23,12 @@ resource "aws_security_group" "my-webserver" {
 resource "aws_security_group" "my-database" {
   name        = "database"
   description = "Allow MySQL/Aurora from WebService"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
   ingress {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = ["${aws_security_group.my-webserver.id}"]
+    security_groups = [aws_security_group.my-webserver.id]
     self            = false
   }
   egress {
