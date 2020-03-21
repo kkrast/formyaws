@@ -1,6 +1,9 @@
 #### VARIABLES
 variable "profile" {}
 variable "region" {}
+variable "database_name" {}
+variable "database_user" {}
+variable "database_password" {}
 variable "key_name" {
   default = "my-key-pair"
 }
