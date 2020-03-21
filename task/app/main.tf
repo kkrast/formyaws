@@ -1,4 +1,4 @@
-data "aws_ami" "amazon-linux-2" {
+data "aws_ami" "amazon-linux-ami" {
   most_recent = true
   filter {
     name   = "virtualization-type"

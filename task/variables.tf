@@ -1,12 +1,14 @@
 
 variable "profile" {}
 variable "region" {}
+variable "vpc_id" {}
 
 # security groups
 variable "sg_web" {}
 variable "sg_db" {}
 # subnets
-variable "sn_web" {}
+variable "sn_web1" {}
+variable "sn_web2" {}
 variable "sn_db1" {}
 variable "sn_db2" {}
 
