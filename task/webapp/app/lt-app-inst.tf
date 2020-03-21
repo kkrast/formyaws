@@ -44,5 +44,5 @@ resource "aws_launch_template" "lt_app_inst" {
    }
   
 
-  user_data = "${base64encode(data.template_file.app_server_user_data.rendered)}"
+  user_data = base64encode(data.template_file.app_server_user_data.rendered)
 }
