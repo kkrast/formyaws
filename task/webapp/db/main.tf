@@ -2,7 +2,7 @@ resource "aws_db_subnet_group" "my-dbsg" {
   name        = "my-dbsg"
   description = "my-dbsg"
   subnet_ids  = ["${var.sn_db1}", "${var.sn_db2}"]
-  tags {
+  tags = {
     "Name" = "my-dbsg"
     "Site" = "my-web-site"
   }
@@ -26,7 +26,7 @@ resource "aws_db_instance" "my-db" {
   # required for deleting
   skip_final_snapshot       = true
   final_snapshot_identifier = "Ignore"
-  tags {
+  tags = {
     "Name" = "my-db"
     "Site" = "my-web-site"
   }
