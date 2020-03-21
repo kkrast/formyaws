@@ -43,6 +43,6 @@ resource "aws_lb_listener" "lb_listener_front_end" {
   
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.tg_lb_app.arn
+    target_group_arn = aws_alb_target_group.tg_lb_app.arn
   }
 }
