@@ -5,8 +5,7 @@ resource "aws_autoscaling_group" "as-app" {
     max_size                  = 2
     min_size                  = 1
     name                      = "as-app"
-    vpc_zone_identifier       = [ec2-resourses.sn_web1,
-                                 ec2-resourses.sn_web2]
+    vpc_zone_identifier       = ["${var.sn_web1}","${var.sn_web2}"]
 
     tag {
         key   = "ASG"
