@@ -2,8 +2,8 @@ resource "aws_lb" "lb_app_frontend" {
   name               = "lb-app-frontend"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [${var.sg_web}]
-  subnets            = [${var.sn_web1},${var.sn_web2}]
+  security_groups    = ["${var.sg_web}"]
+  subnets            = ["${var.sn_web1}","${var.sn_web2}"]
 
   enable_deletion_protection = true
 
