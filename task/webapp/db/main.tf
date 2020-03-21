@@ -15,9 +15,9 @@ resource "aws_db_instance" "my-db" {
   engine            = "mysql"
   engine_version    = "5.6.40"
   instance_class    = "db.t2.micro"
-  name     = "${var.database_name}"
-  username = "${var.database_user}"
-  password = "${var.database_password}"
+  name     = var.database_name
+  username = var.database_user
+  password = var.database_password
   parameter_group_name   = "default.mysql5.6"
   db_subnet_group_name   = aws_db_subnet_group.my-dbsg.id
   vpc_security_group_ids = ["${var.sg_db}"]
