@@ -43,7 +43,7 @@ tags {
 }
 
 resource "aws_internet_gateway" "my-igw" {
-  vpc_id = "${aws_vpc.my-main.id}"
+  vpc_id = aws_vpc.my-main.id
   tags = {
     Name = "my-igw"
     Site = "my-web-site"
@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "my-igw" {
 }
 
 resource "aws_route_table" "my-rt" {
-  vpc_id = "${aws_vpc.my-main.id}"
+  vpc_id = aws_vpc.my-main.id
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.my-igw.id}"
@@ -63,11 +63,11 @@ resource "aws_route_table" "my-rt" {
 }
 
 resource "aws_route_table_association" "my-public1" {
-  subnet_id      = "${aws_subnet.my-public1.id}"
-  route_table_id = "${aws_route_table.my-rt.id}"
+  subnet_id      = aws_subnet.my-public1.id
+  route_table_id = aws_route_table.my-rt.id
 }
 resource "aws_route_table_association" "my-public2" {
-  subnet_id      = "${aws_subnet.my-public2.id}"
-  route_table_id = "${aws_route_table.my-rt.id}"
+  subnet_id      = "aws_subnet.my-public2.id
+  route_table_id = aws_route_table.my-rt.id
 }
 
