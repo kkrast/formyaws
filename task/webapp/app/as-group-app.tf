@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "as-app" {
     health_check_grace_period = 300
     health_check_type         = "EC2"
     max_size                  = 2
-    min_size                  = 1
+    min_size                  = 0
     name                      = "as-app"
     vpc_zone_identifier       = ["${var.sn_web1}","${var.sn_web2}"]
 
