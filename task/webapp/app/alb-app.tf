@@ -2,9 +2,8 @@ resource "aws_lb" "lb_app_frontend" {
   name               = "lb-app-frontend"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [ec2-resourses.key_name]
-  subnets            = [ec2-resourses.sn_web1,
-                        ec2-resourses.sn_web2]
+  security_groups    = [${var.sg_web}]
+  subnets            = [${var.sn_web1},${var.sn_web2}]
 
   enable_deletion_protection = true
 
@@ -17,7 +16,7 @@ resource "aws_alb_target_group" "tg_lb_app" {
   name     = "tg-lb-app"
   port     = 80  
   protocol = "HTTP"  
-  vpc_id   = var.vpc_id   
+  vpc_id   = "${var.vpc_id}"   
   target_type = "instance" 
   stickiness {    
     type            = "lb_cookie"    

@@ -17,6 +17,7 @@ module "webapp" {
   key_name = "${var.key_name}"
 
   # pass web security group and public networks
+  vpc_id = "${module.core_infra.vpc}"
   sg_web = "${module.core_infra.sg_web}"
   sn_web1 = "${module.core_infra.sn_pub1}"
   sn_web2 = "${module.core_infra.sn_pub2}"

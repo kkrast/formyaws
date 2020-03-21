@@ -1,5 +1,6 @@
 module "ec2-resourses" {
   source = "./app"
+  vpc_id = "${var.vpc_id}"
   sg_web = "${var.sg_web}"
   sn_web1 = "${var.sn_web1}"
   sn_web2 = "${var.sn_web2}"
