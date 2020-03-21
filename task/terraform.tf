@@ -6,7 +6,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "task-terraform-backend"
-    key = "terraform-environment-task"
+    key = "terraform-environment-task-all"
     region = "eu-west-1"
     dynamodb_table = "terraform-lock"
   }
