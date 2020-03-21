@@ -25,7 +25,7 @@ resource "aws_launch_template" "lt_app_inst" {
 
   key_name = "my-key-pair"
 
-  vpc_security_group_ids = ["sg-037da9973c576fb8c","sg-06da423625e56a80d"]
+  vpc_security_group_ids = ["${var.sg_web}"]
 
   tag_specifications {
        resource_type = "instance"
