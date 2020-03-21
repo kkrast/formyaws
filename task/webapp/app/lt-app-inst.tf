@@ -1,5 +1,5 @@
 data "template_file" "app_server_user_data" {
-  template = "${file("app_user_data")}"
+  template = "${file("${path.module}/app_user_data")}"
 }
 
 
