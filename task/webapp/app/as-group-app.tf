@@ -5,8 +5,8 @@ resource "aws_autoscaling_group" "as-app" {
     max_size                  = 2
     min_size                  = 1
     name                      = "as-app"
-    vpc_zone_identifier       = ["${ec2-resourses.sn_web1}",
-                                 "${ec2-resourses.sn_web2}"]
+    vpc_zone_identifier       = [ec2-resourses.sn_web1,
+                                 ec2-resourses.sn_web2]
 
     tag {
         key   = "ASG"
@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "as-app" {
         propagate_at_launch = true
     }
     launch_template {
-        id      = "${aws_launch_template.lt_app_inst.id}"
+        id      = aws_launch_template.lt_app_inst.id
         version = "$Latest"
     }
 
@@ -22,5 +22,5 @@ resource "aws_autoscaling_group" "as-app" {
 
 resource "aws_autoscaling_attachment" "as_app_attach_tg_lb_app" {
   autoscaling_group_name = "as-app"
-  alb_target_group_arn   = "${aws_alb_target_group.tg_lb_app.arn}"
+  alb_target_group_arn   = aws_alb_target_group.tg_lb_app.arn
 }

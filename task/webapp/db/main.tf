@@ -19,7 +19,7 @@ resource "aws_db_instance" "my-db" {
   username = "${var.database_user}"
   password = "${var.database_password}"
   parameter_group_name   = "default.mysql5.6"
-  db_subnet_group_name   = "${aws_db_subnet_group.my-dbsg.id}"
+  db_subnet_group_name   = aws_db_subnet_group.my-dbsg.id
   vpc_security_group_ids = ["${var.sg_db}"]
   # set these for dev db
   backup_retention_period = 0
