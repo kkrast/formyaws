@@ -1,8 +1,4 @@
 
-variable "profile" {}
-variable "region" {}
-variable "vpc_id" {}
-
 # security groups
 variable "sg_web" {}
 variable "sg_db" {}
