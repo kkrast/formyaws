@@ -8,6 +8,7 @@ module "ec2-resourses" {
 }
 module "db" {
   source = "./db"
+  vpc_id = "${var.vpc_id}"
   sg_db  = "${var.sg_db}"
   sn_db1 = "${var.sn_db1}"
   sn_db2 = "${var.sn_db2}"
