@@ -13,7 +13,7 @@ find /var/www -type f -exec sudo chmod 0664 {} +
 
 #Connect your Apache web server to your RDS DB instance
 su -c "cd /var/www;mkdir inc" - ec2-user
-cat <<EOF >> /var/www/dbinfo.inc
+cat <<EOF >> /var/www/inc/dbinfo.inc
 <?php
 
 define('DB_SERVER', 'db_instance_endpoint');
