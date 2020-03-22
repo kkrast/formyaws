@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "as-app" {
-    desired_capacity          = 1
+    desired_capacity          = 2
     health_check_grace_period = 300
     health_check_type         = "EC2"
     max_size                  = 2
