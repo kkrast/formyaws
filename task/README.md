@@ -9,6 +9,7 @@ Task description
 8. Present a working solution, e.g. not a powerpoint presentation, but a working demo
 
 Solution description:
+
 The solution consists of several AWS resources, all of them are created using Terraform IaC tool: 
 - Network infrastructure, consisting of a newly created AWS VPC, with Internet Gateway, two public and  two private subnets, as well as Security Groups for Web and DB server instances
 - Launch Template "lt-app-inst" for AppServer instances, which has UserData Bash script, installing Apache, PHP, and sample web site files after EC2 instance launch (including index.php and db configuration files).
