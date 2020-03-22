@@ -41,7 +41,8 @@ $ip_server = $_SERVER['SERVER_ADDR'];
 <?php include "../inc/dbinfo.inc"; ?>
 <html>
 <body>
-<h1>Sample page served by $ip_server</h1>
+<h1>Sample page served by</h1>
+<h2><?php echo $ip_server;?></h2>
 <?php
 
   /* Connect to MySQL and select the database. */
