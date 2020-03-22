@@ -26,10 +26,22 @@ EOF
 
 
 cat <<"EOT" >> /var/www/html/index.php
+<?php 
+  
+// PHP program to obtain IP address of 
+// the server 
+  
+// Creating a variable to store the 
+// server address 
+$ip_server = $_SERVER['SERVER_ADDR']; 
+  
+ 
+?> 
+
 <?php include "../inc/dbinfo.inc"; ?>
 <html>
 <body>
-<h1>Sample page</h1>
+<h1>Sample page served by $ip_server</h1>
 <?php
 
   /* Connect to MySQL and select the database. */
