@@ -16,10 +16,10 @@ su -c "cd /var/www;mkdir inc" - ec2-user
 cat <<EOF >> /var/www/inc/dbinfo.inc
 <?php
 
-define('DB_SERVER', 'db_instance_endpoint');
-define('DB_USERNAME', 'tutorial_user');
-define('DB_PASSWORD', 'master password');
-define('DB_DATABASE', 'sample');
+define('DB_SERVER', 'db.task.int');
+define('DB_USERNAME', 'admin');
+define('DB_PASSWORD', 'hx+AjmxLZ2k');
+define('DB_DATABASE', 'webdb');
 
 ?>
 EOF
