@@ -8,7 +8,7 @@ resource "aws_route53_zone" "priv_dns_zone" {
 }
 
 resource "aws_route53_record" "dns_rec_for_db" {
-  zone_id = "${aws_route53_zone.priv_dns_zone.zone_id}"
+  zone_id = aws_route53_zone.priv_dns_zone.zone_id
   name    = "db.task.int"
   type    = "A"
   ttl     = "300"
