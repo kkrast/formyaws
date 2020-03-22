@@ -25,7 +25,7 @@ define('DB_DATABASE', 'webdb');
 EOF
 
 
-cat <<EOF >> /var/www/index.php
+cat <<EOF >> /var/www/html/index.php
 <?php include "../inc/dbinfo.inc"; ?>
 <html>
 <body>
