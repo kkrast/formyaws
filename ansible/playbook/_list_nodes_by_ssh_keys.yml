@@ -1,0 +1,45 @@
+---
+
+- hosts: aws
+  remote_user: ubuntu 
+  become: yes
+  become_user: root
+
+
+  tasks:
+    - name: Initialize list variables
+      set_fact:
+        nodes_with_more_keys: []
+
+    - name: Initialize list variables
+      set_fact:
+        nodes_with_only_one_key: []
+
+    - name: Show contents of authorized_keys file
+      command: cat /home/ubuntu/.ssh/authorized_keys
+      register: authorized_keys_content
+
+    - debug:
+        msg: "{{ authorized_keys_content.stdout }}"
+
+    - name: Count number of keys in authorized_keys file
+      shell: cat /home/ubuntu/.ssh/authorized_keys | wc -l
+      register: authorized_keys_count
+
+    - name: Add the node that has more than one line in authorized_keys in a list
+      set_fact:
+        nodes_with_more_keys: "{{ nodes_with_more_keys + [ansible_facts['nodename']] }}"
+      when: authorized_keys_count.stdout != "1"
+    
+    - name: Add the node that has only one line in authorized_keys in a list
+      set_fact:
+        nodes_with_only_one_key: "{{ nodes_with_only_one_key + [ansible_facts['nodename']] }}"
+      when: authorized_keys_count.stdout == "1"
+
+    - name: Print list of nodes having only one key
+      debug:
+        var=nodes_with_only_one_key
+
+    - name: Print list of nodes having more than one key
+      debug:
+        var=nodes_with_more_keys
