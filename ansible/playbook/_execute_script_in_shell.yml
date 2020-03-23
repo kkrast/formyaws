@@ -1,0 +1,22 @@
+---
+- hosts: aws
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Check for service file
+      stat:
+        path: /etc/systemd/system/consul.service
+      register: service_file
+
+    - name: Transfer the script
+      copy: src=install_consul.sh  dest=/usr/local/src/install_consul.sh mode=0777
+      when: service_file.stat.exists == False
+
+    - name: Execute script on nodes 
+      command: /bin/bash /usr/local/src/install_consul.sh 
+      when: service_file.stat.exists == False
+      register: output
+
+    - debug: var=output.stdout_lines
