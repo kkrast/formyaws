@@ -1,0 +1,22 @@
+---
+
+- hosts: aws
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Show contents of authorized_keys file
+      shell: cat /home/ubuntu/.ssh/authorized_keys
+      register: authorized_keys_content
+
+    - debug:
+        msg: "{{ authorized_keys_content.stdout }}"
+
+    - name: Add new line in authorized_keys file
+      authorized_key:
+        user: ubuntu
+        key: '{{ item }}'
+        state: present
+      with_file:
+        - public_keys/xyz_sofia_nv.pub3
