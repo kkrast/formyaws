@@ -1,0 +1,32 @@
+---
+
+- hosts: aws
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Show contents of authorized_keys file
+      shell: cat /home/ubuntu/.ssh/authorized_keys
+      register: authorized_keys_content
+
+    - debug:
+        msg: "{{ authorized_keys_content.stdout }}"
+   
+    - name: Check for existence of OTHER, the needed key, in the authorized_keys file
+      lineinfile:
+        path: "/home/ubuntu/.ssh/authorized_keys"
+        state: present
+        line: "{{ item }}"
+      check_mode: yes
+      register: needed_key_is_there
+      with_file:
+        - public_keys/xyz_sofia_nv.pub3
+
+    - debug:
+        msg: "The NEEDED KEY IS EXISTING"
+      when: needed_key_is_there is not changed
+
+    - debug:
+        msg: "!!!The NEEDED KEY IS NOT EXISTING!!!"
+      when: needed_key_is_there is changed
