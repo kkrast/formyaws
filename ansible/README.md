@@ -4,7 +4,7 @@ Main goals achieved with the below published group of playbooks:
 
 1. Change the old nv-xyz SSH authorization key inside the .ssh/authorized_keys file on every EC2 Linux instance. This goal is reached by these main sub-steps, each one implemented within separate playbook:
 
-      1.1. _check_for_authorized_key.yml: determine which instances have only one ssh key (only the nv-xyz key, which to exchange with the xyz-sofia key), and also the instances having more than one authorized key, in order to be checked manually for keys that are not needed any more
+      1.1._list_nodes_by_ssh_keys.yml: determine which instances have only one ssh key (only the nv-xyz key, which to exchange with the xyz-sofia key), and also the instances having more than one authorized key, in order to be checked manually for keys that are not needed any more
 
       1.2. _add_authorized_key.yml: add the new SSH public key for xyz-sofia into the authorized_keys files on AWS instances
 
