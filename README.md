@@ -1,2 +1,2 @@
 # formyaws
- Works for my private AWS accounts
+ Some selected automation works on AWS Cloud environments
