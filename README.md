@@ -3,7 +3,7 @@
  
 /task:
 
-Solution for creating from scratch of a AWS VPC network infrastructure, hosting high-available (load-balanced, with automatic service fail-over) sample web application, connecting to RDS MySQL database]
+Solution for creating from scratch of an AWS VPC network infrastructure, hosting high-available (load-balanced, with automatic service fail-over) sample web application, connecting to RDS MySQL database]
 
 /ansible: 
 
