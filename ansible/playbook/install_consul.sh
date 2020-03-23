@@ -49,7 +49,7 @@ chmod 640 /etc/consul.d/consul.hcl
 cat <<EOT > /etc/consul.d/consul.hcl
 datacenter = "dc1"
 data_dir = "/opt/consul"
-encrypt = "swOetDgN1FNpYEPrsngmzE5ZiyJKwxs0jmUCbm+CTO8="
+encrypt = "xyxXYZxyxXYZ"
 retry_join = ["consul-a.xyz", "consul-b.xyz"]
 performance {
   raft_multiplier = 1
